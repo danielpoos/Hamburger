@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Nov 12. 20:49
+-- Létrehozás ideje: 2021. Nov 12. 22:05
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 8.0.12
 
@@ -17,18 +17,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Adatbázis: `hamburgers`
---
-
+DROP DATABASE IF EXISTS hamburgers;
 CREATE DATABASE hamburgers;
 
---
--- Tábla szerkezet ehhez a táblához `burger`
---
 
 CREATE TABLE `burger` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `nev` varchar(45) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `fajta` varchar(45) COLLATE utf8mb4_hungarian_ci NOT NULL,
   `ar` int(11) NOT NULL,
@@ -36,24 +30,11 @@ CREATE TABLE `burger` (
   `lejarat` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
---
--- A tábla adatainak kiíratása `burger`
---
 
 INSERT INTO `burger` (`id`, `nev`, `fajta`, `ar`, `kaloria`, `lejarat`) VALUES
 (1, 'Fishy', 'halas burger', 780, 330, '2021-11-16 12:00:00'),
 (2, 'Flamingo', 'rózsaszín szószos csirkeburger', 650, 410, '2021-11-17 12:00:00');
 
---
--- Indexek a kiírt táblákhoz
---
-
---
--- A tábla indexei `burger`
---
-ALTER TABLE `burger`
-  ADD PRIMARY KEY (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
